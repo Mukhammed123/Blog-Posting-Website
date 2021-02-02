@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "serve",
+      "label": "npm: serve",
+      "detail": "vue-cli-service serve",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "silent",
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^ ERROR  (.+)$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^ INFO  Starting development server\\.\\.\\.$",
+          "endsPattern": "^ +(DONE|WARNING|ERROR)  .+$"
+        }
+      }
+    }
+  ]
+}

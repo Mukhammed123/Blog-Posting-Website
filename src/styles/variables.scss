@@ -1,0 +1,18 @@
+// Grid breakpoints of large (lg) and extra large (xl) need to deduct the width
+// of scrollbar, which the default value in Vuetify is 16px, see:
+// - https://vuetifyjs.com/features/breakpoints/
+// - https://vuetifyjs.com/features/sass-variables/
+// - https://bit.ly/2Cl1vWU
+// and in this project we use custom scrollbar, which width is 8px, see file:
+// - src/styles/global.scss: :root -> --webkit-scrollbar-width-height
+$grid-breakpoints: (
+  'xs': 0,
+  'sm': 600px,
+  'md': 960px,
+  'lg': 1280px - 8px,
+  'xl': 1920px - 8px,
+);
+
+$list-item-action-icon-margin: 16px;
+$list-item-action-margin: auto 0;
+$list-item-dense-title-font-size: .875rem; // subtitle-2

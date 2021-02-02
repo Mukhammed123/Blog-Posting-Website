@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "edge",
+      "request": "launch",
+      "name": "Vue.js: Edge",
+      "url": "http://localhost:8080",
+      "preLaunchTask": "npm: serve",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "userDataDir": false,
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": [
+        "--auto-open-devtools-for-tabs"
+      ]
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Vue.js: Chrome",
+      "url": "http://localhost:8080",
+      "preLaunchTask": "npm: serve",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "userDataDir": false,
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      },
+      "runtimeArgs": [
+        "--auto-open-devtools-for-tabs"
+      ]
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "name": "Vue.js: Firefox",
+      "url": "http://localhost:8080",
+      "preLaunchTask": "npm: serve",
+      "webRoot": "${workspaceFolder}/src",
+      "pathMappings": [
+        {
+          "url": "webpack:///src/",
+          "path": "${webRoot}/"
+        }
+      ]
+    }
+  ]
+}
