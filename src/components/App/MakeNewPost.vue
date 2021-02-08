@@ -10,7 +10,7 @@
           class="mr-3 inp"
         ></v-text-field>
       </v-layout>
-      <v-row no-gutters>
+      <v-row no-gutters id="action-container">
         <v-col class="btn1">
           <v-btn plain style="width: 100%">
             <v-icon>mdi-video</v-icon>
@@ -18,7 +18,7 @@
           </v-btn>
         </v-col>
         <v-col class="btn2">
-          <v-btn plain style="width: 100%" @click="openUploadDialog = true">
+          <v-btn plain style="width: 100%" @click="openDialog">
             <v-icon>mdi-image</v-icon>
             <span>Image/Video</span>
           </v-btn>
@@ -55,8 +55,9 @@ export default Vue.component(
       };
     },
     methods: {
-      test() {
-        console.log('Emitted');
+      openDialog() {
+        console.log(this.openUploadDialog);
+        this.openUploadDialog = true;
       },
     },
   }),
