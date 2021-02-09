@@ -3,12 +3,12 @@
     <template v-for="post in postData">
       <v-card class="pa-3 my-2 mx-auto rounded-xl" :key="post.id">
         <a href="#" :class="$vuetify.theme.dark ? 'white--text' : 'black--text'">
-          <h4 class="text-decoration-underline">{{ post.author }}</h4>
+          <h4 class="text-decoration-underline">{{ post.name }}</h4>
         </a>
         <h2>{{ post.title }}</h2>
         <v-img :src="getImgUrl(post.image)"></v-img>
         <p class="mt-2">
-          {{ post.description }}
+          {{ post.text }}
         </p>
       </v-card>
     </template>
@@ -25,7 +25,7 @@ export default Vue.component(
     props: ['postData'],
     methods: {
       getImgUrl(url) {
-        return require('@/' + url);
+        return require('@/assets/images/' + url);
       },
     },
   }),
