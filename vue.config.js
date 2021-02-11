@@ -31,6 +31,9 @@ module.exports = {
       })
       .end();
   },
+  devServer: {
+    host: 'localhost',
+  },
   pluginOptions: {
     i18n: {
       locale: i18nLocale,

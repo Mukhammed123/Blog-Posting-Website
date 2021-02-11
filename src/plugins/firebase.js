@@ -23,4 +23,23 @@ const testCollection = db.collection('test');
 
 const blogsContainer = db.collection('blogs');
 
-export { db, testCollection, blogsContainer };
+const blogs = {
+  data: [],
+  methods: {
+    addBlog(blog) {
+      blogs.data.push(blog);
+    },
+  },
+};
+
+db.collection('blogs').onSnapshot((snapShot) => {
+  let changes = snapShot.docChanges();
+  console.log(changes);
+  changes.forEach((change) => {
+    if (change.type == 'added') {
+      blogs.methods.addBlog(change.doc.data());
+    }
+  });
+});
+
+export { db, testCollection, blogsContainer, blogs };

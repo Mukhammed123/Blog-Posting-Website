@@ -11,23 +11,31 @@ import Vue from 'vue';
 import MakeNewPost from '@/components/App/MakeNewPost';
 import PostsContainer from '@/components/App/PostsContainer';
 import extensions from '@/mixins/extensions';
-import { blogsContainer } from '@/plugins/firebase';
+import { blogs } from '@/plugins/firebase';
 
 export default Vue.extend({
   name: 'Home',
   data: () => {
     return {
-      postData: [],
+      postData: blogs.data,
     };
   },
   components: { MakeNewPost, PostsContainer },
   mixins: [extensions],
   mounted() {
-    blogsContainer.get().then((snapShot) => {
-      snapShot.docs.forEach((doc) => {
-        this.postData.push(doc.data());
-      });
-    });
+    // $store.state.blogs.forEach((blog) => {
+    //   this.postData.push(blog);
+    // });
+    // console.log(blogsArray);
+    // blogsArray.forEach((blog) => {
+    //   this.postData.push(blog);
+    // });
+    // console.log(this.postData);
+    // blogsContainer.get().then((snapShot) => {
+    //   snapShot.docs.forEach((doc) => {
+    //     this.postData.push(doc.data());
+    //   });
+    // });
   },
 });
 </script>

@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    blogs: {},
     app: {
       name: process.env.VUE_APP_NAME,
       icon: process.env.VUE_APP_ICON,

@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     class="upload-dialog"
-    max-width="360px"
+    max-width="450px"
     :value="value"
     @upload="$emit('upload', $event)"
   >
