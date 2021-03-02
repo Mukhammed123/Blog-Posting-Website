@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import { db } from '@/firebase';
+
+import blogs from '@/plugins/modules/blogs';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    blogs: {},
     app: {
       name: process.env.VUE_APP_NAME,
       icon: process.env.VUE_APP_ICON,
@@ -19,5 +21,7 @@ export default new Vuex.Store({
   },
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    blogs,
+  },
 });

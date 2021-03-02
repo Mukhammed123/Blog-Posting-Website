@@ -7,10 +7,10 @@
 
 <script>
 import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 
 import MakeNewPost from '@/components/App/MakeNewPost';
 import PostsContainer from '@/components/App/PostsContainer';
-import { blogsContainer } from '@/plugins/firebase';
 
 export default Vue.component(
   'profile',
@@ -19,19 +19,14 @@ export default Vue.component(
     components: { MakeNewPost, PostsContainer },
     data: () => {
       return {
-        postData: [],
+        postData: this.allblogs,
       };
     },
-    mounted() {
-      blogsContainer
-        .where('name', '==', 'Mukhammed Musa')
-        .get()
-        .then((snapShot) => {
-          snapShot.docs.forEach((doc) => {
-            this.postData.push(doc.data());
-          });
-        });
+    methods: {
+      ...mapActions(['fetchBlogs']),
     },
+    computed: { ...mapGetters(['allblogs']) },
+    created() {},
   }),
 );
 </script>
