@@ -1,16 +1,16 @@
 <template>
   <div class="profile" style="overflow: scroll">
     <make-new-post></make-new-post>
-    <posts-container :post-data="postData"></posts-container>
+    <posts-container :post-data="filteredBlogs"></posts-container>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+import { mapGetters, mapActions } from 'vuex';
 
 import MakeNewPost from '@/components/App/MakeNewPost';
 import PostsContainer from '@/components/App/PostsContainer';
-import { blogsContainer } from '@/plugins/firebase';
 
 export default Vue.component(
   'profile',
@@ -18,20 +18,12 @@ export default Vue.component(
     name: 'Profile',
     components: { MakeNewPost, PostsContainer },
     data: () => {
-      return {
-        postData: [],
-      };
+      return {};
     },
-    mounted() {
-      blogsContainer
-        .where('name', '==', 'Mukhammed Musa')
-        .get()
-        .then((snapShot) => {
-          snapShot.docs.forEach((doc) => {
-            this.postData.push(doc.data());
-          });
-        });
+    methods: {
+      ...mapActions(['fetchBlogs']),
     },
+    computed: mapGetters(['filteredBlogs']),
   }),
 );
 </script>

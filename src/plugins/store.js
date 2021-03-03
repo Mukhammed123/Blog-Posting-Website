@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import { db } from '@/firebase';
+
+import blogs from '@/plugins/modules/blogs';
 
 Vue.use(Vuex);
 
@@ -18,5 +21,7 @@ export default new Vuex.Store({
   },
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    blogs,
+  },
 });

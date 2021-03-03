@@ -11,20 +11,20 @@
         ></v-text-field>
       </v-layout>
       <v-row no-gutters id="action-container">
-        <v-col class="btn1">
-          <v-btn plain style="width: 100%">
+        <v-col class="btn1" cols="4">
+          <v-btn plain block>
             <v-icon>mdi-video</v-icon>
             <span>Live Video</span>
           </v-btn>
         </v-col>
-        <v-col class="btn2">
-          <v-btn plain style="width: 100%" @click="openDialog">
+        <v-col class="btn2" cols="4">
+          <v-btn plain @click="openUploadDialog = true" block>
             <v-icon>mdi-image</v-icon>
             <span>Image/Video</span>
           </v-btn>
         </v-col>
-        <v-col class="btn3">
-          <v-btn plain style="width: 100%">
+        <v-col class="btn3" cols="4">
+          <v-btn plain block>
             <v-icon>mdi-emoticon</v-icon>
             <span>Feeling/Activity</span>
           </v-btn>
@@ -53,12 +53,6 @@ export default Vue.component(
         openUploadDialog: false,
         openFeelingsDialog: false,
       };
-    },
-    methods: {
-      openDialog() {
-        console.log(this.openUploadDialog);
-        this.openUploadDialog = true;
-      },
     },
   }),
 );
