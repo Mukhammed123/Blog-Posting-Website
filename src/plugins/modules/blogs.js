@@ -15,6 +15,11 @@ const state = {
 
 const getters = {
   allBlogs: (state) => state.blogs,
+  filteredBlogs: (state) => {
+    var allblogs = state.blogs;
+    allblogs.filter((blog) => blog.name === 'Mukhammed Musa');
+    return allblogs;
+  },
 };
 
 const actions = {

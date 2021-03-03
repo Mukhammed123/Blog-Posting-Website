@@ -1,7 +1,7 @@
 <template>
   <div class="profile" style="overflow: scroll">
     <make-new-post></make-new-post>
-    <posts-container :post-data="postData"></posts-container>
+    <posts-container :post-data="filteredBlogs"></posts-container>
   </div>
 </template>
 
@@ -18,15 +18,12 @@ export default Vue.component(
     name: 'Profile',
     components: { MakeNewPost, PostsContainer },
     data: () => {
-      return {
-        postData: this.allblogs,
-      };
+      return {};
     },
     methods: {
       ...mapActions(['fetchBlogs']),
     },
-    computed: { ...mapGetters(['allblogs']) },
-    created() {},
+    computed: mapGetters(['filteredBlogs']),
   }),
 );
 </script>
