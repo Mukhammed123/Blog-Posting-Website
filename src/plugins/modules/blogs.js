@@ -37,8 +37,16 @@ const actions = {
       changes.forEach((change) => {
         console.log(change.type);
         if (change.type == 'added') {
-          blogsContainer.unshift();
-          commit('addBlog', { ...change.doc.data(), id: change.doc.id });
+          // blogsContainer.unshift();
+          var flag = true;
+          for(var j=0; j <state.blogs.length; j++) {
+            if(state.blogs[j].id == change.doc.id){
+              flag = false;
+              break;
+            }
+          }
+          if(flag)
+            commit('addBlog', { ...change.doc.data(), id: change.doc.id });
         } else if (change.type == 'removed') {
           blogsContainer = [];
           for (var i = 0; i < state.blogs.length; i++) {
